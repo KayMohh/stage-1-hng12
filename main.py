@@ -1,7 +1,8 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 from fastapi.responses import JSONResponse
+
 
 def is_prime(n: int) -> bool:
     if n < 2:

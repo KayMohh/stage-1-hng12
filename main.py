@@ -35,11 +35,16 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["*"],  # 
+    allow_methods=["GET"],  #
+    allow_headers=["*"],  # 
 )
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to my HNG Api"}
+
+
 @app.get("/api/classify-number")
 async def classify_number(number: str):
     if not number.isdigit():
